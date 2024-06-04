@@ -1,0 +1,590 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="social-network-application">Social Network Application</h1>
+<h2 id="description-a-brief-overview">Description: A Brief Overview</h2>
+<p>This project is about s JavaFX application for manging user profiles. It allows users to create, delete, and modify profiles, including changing profile pictures and status messages. Moreover, users can add friends to thier profiles. The application provides a graphical user interface (GUI) for interacting with profile features.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#technologies-used">Technologies Used</a></li>
+<li><a href="#design-overview">Design Overview</a></li>
+<li><a href="#usage">Usage</a></li>
+</ol>
+<h2 id="technologies-used">Technologies Used</h2>
+<ul>
+<li>Java</li>
+<li>JavaFX</li>
+</ul>
+<h2 id="design-overview">Design Overview</h2>
+<h3 id="fxapplication-class">FXApplication Class</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>The <code>FXApplication</code> class is the main class that extends <code>Application</code> from JavaFX.</li>
+<li>It represents the GUI of the application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Variables:</strong></p>
+<ul>
+<li><code>borderPane</code>: Represents the main layout of the GUI.</li>
+<li><code>topHbox</code>: Represent the upper layout of the GUI.</li>
+<li><code>leftVbox</code>: Represent the left layout of the GUI.</li>
+<li><code>nameTextField</code>: Text field for user input (name).</li>
+<li><code>imagePathTextFiled</code>: Text field for the reletive image path.</li>
+<li><code>changeStatusTextField</code>: Text field for usetr statues.</li>
+<li><code>addFriendTextFiled</code>: Text field for friend userName.</li>
+<li><code>addButton</code>: Button to add a profile.</li>
+<li><code>deleteButton</code>: Button to delete a profile.</li>
+<li><code>lookupButton</code>: Button to show a user profile.</li>
+</ul>
+</li>
+</ul>
+<h2 id="javafx-application---start-method-explanation">JavaFX Application - <code>start</code> Method Explanation</h2>
+<p>The <code>start</code> method is a part of the FXApplication class that extends <code>Application</code>.</p>
+<h2 id="overview">Overview:</h2>
+<ul>
+<li>
+<p><strong>Scene Setup:</strong></p>
+<ul>
+<li>A <code>BorderPane</code> named <code>borderPane</code> is created to organize the layout.</li>
+<li>The background color is set to light gray.</li>
+</ul>
+</li>
+<li>
+<p><strong>Top Region (HBox):</strong></p>
+<ul>
+<li>An <code>HBox</code> named <code>topHBox</code> is created for the top region.</li>
+<li>It contains UI elements such as a <code>Label</code> (<code>nameLabel</code>), a <code>TextField</code> (<code>nameTextField</code>), and buttons (<code>addButton</code>, <code>deleteButton</code>, <code>lookupButton</code>).</li>
+<li>A <code>ComboBox</code> (<code>themeComboBox</code>) for selecting themes is also added.</li>
+</ul>
+</li>
+<li>
+<p><strong>Left Region (VBox):</strong></p>
+<ul>
+<li>A <code>VBox</code> named <code>leftVBox</code> is created for the left region.</li>
+<li>It contains three sub-VBoxes (<code>subVBox1</code>, <code>subVBox2</code>, <code>subVBox3</code>), each with a <code>TextField</code> and a related <code>Button</code>.</li>
+<li>These are used for changing status, changing pictures, and adding friends.</li>
+</ul>
+</li>
+<li>
+<p><strong>Event Handling:</strong></p>
+<ul>
+<li>Event handlers are attached to buttons to perform actions like adding a profile, deleting a profile, and changing a picture.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage">Usage:</h2>
+<ul>
+<li>Interact with the elements to add/delete profiles, change pictures/status, add friends, and look up user information.</li>
+</ul>
+<h2 id="addprofile-method-explanation"><code>addProfile</code> Method Explanation</h2>
+<p>The <code>addProfile</code> method is responsible for adding a new user profile.</p>
+<h2 id="overview-1">Overview:</h2>
+<ul>
+<li>
+<p><strong>User Input:</strong></p>
+<ul>
+<li>Retrieves the new profile name from the <code>nameTextField</code> input field.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Creation:</strong></p>
+<ul>
+<li>Creates an instance of the <code>Profile</code> class with the provided name.</li>
+<li>Calls the <code>creatProfile</code> method of the <code>Profile</code> class, attempting to create a new user profile folder.</li>
+</ul>
+</li>
+<li>
+<p><strong>Show Center:</strong></p>
+<ul>
+<li>Checks if the provided name is not empty and the profile creation was successful.</li>
+<li>If conditions are met, calls the <code>showCenter</code> method with the argument “add” to display a message indicating that the profile has been added successfully.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage-1">Usage:</h2>
+<ul>
+<li>Enter a name for the new profile in the <code>nameTextField</code>.</li>
+<li>Click the “Add” button to trigger the <code>addProfile</code> method.</li>
+<li>If the profile is created successfully, a message confirming the addition will be displayed in the center of the application.</li>
+</ul>
+<h2 id="deleteprofile-method-explanation"><code>deleteProfile</code> Method Explanation</h2>
+<p>The <code>deleteProfile</code> method serves the purpose of deleting an existing user profile.</p>
+<h2 id="overview-2">Overview:</h2>
+<ul>
+<li>
+<p><strong>User Input:</strong></p>
+<ul>
+<li>Retrieves the name of the profile to be deleted from the <code>nameTextField</code> input field.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Existence Check:</strong></p>
+<ul>
+<li>Creates an instance of the <code>Profile</code> class with the provided name.</li>
+<li>Checks if the user profile already exists.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Deletion:</strong></p>
+<ul>
+<li>If the profile exists, calls the <code>deleteProfile</code> method of the <code>Profile</code> class to delete the user profile folder.</li>
+</ul>
+</li>
+<li>
+<p><strong>Show Center:</strong></p>
+<ul>
+<li>If the profile exists and is successfully deleted, calls the <code>showCenter</code> method with the argument “delete” to display a message indicating that the profile has been deleted.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage-2">Usage:</h2>
+<ul>
+<li>Enter the name of the profile you want to delete in the <code>nameTextField</code>.</li>
+<li>Click the “Delete” button to trigger the <code>deleteProfile</code> method.</li>
+<li>If the profile exists and is deleted successfully, a message confirming the deletion will be displayed in the center of the application.</li>
+</ul>
+<h2 id="changepic-method-explanation"><code>changePic</code> Method Explanation</h2>
+<p>The <code>changePic</code> is responsible for changing the profile picture associated with a user profile.</p>
+<h2 id="overview-3">Overview:</h2>
+<ul>
+<li>
+<p><strong>User Input:</strong></p>
+<ul>
+<li>Retrieves the image path from the <code>imagePathTextFiled</code> input field.</li>
+<li>Retrieves the name of the profile from the <code>nameTextField</code> input field.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Folder Creation:</strong></p>
+<ul>
+<li>Checks if the name is not empty and the profile exists .</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Picture Change:</strong></p>
+<ul>
+<li>Calls the <code>creatImage</code> method of the <code>Profile</code> class, passing the image path to change the profile picture.</li>
+</ul>
+</li>
+<li>
+<p><strong>Show Center:</strong></p>
+<ul>
+<li>If the profile exists and the image is changed successfully, calls the <code>showCenter</code> method with the argument “changeImage” to display a message indicating that the profile picture has been changed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage-3">Usage:</h2>
+<ul>
+<li>Enter the name of the profile in the <code>nameTextField</code>.</li>
+<li>Enter the image path in the <code>imagePathTextFiled</code>.</li>
+<li>Click the “Change Picture” button to trigger the <code>changePic</code> method.</li>
+<li>If the name is not empty, the profile exists, and the image changed successfully, a message confirming the change will be displayed in the center of the application.</li>
+</ul>
+<h2 id="changestatus-method-explanation"><code>changeStatus</code> Method Explanation</h2>
+<p>The <code>changeStatus</code> method is responsible for changing the status associated with a user profile.</p>
+<h2 id="overview-4">Overview:</h2>
+<ul>
+<li>
+<p><strong>User Input:</strong></p>
+<ul>
+<li>Retrieves the name of the profile from the <code>nameTextField</code> input field.</li>
+<li>Retrieves the new status from the <code>changeStatusTextField</code> input field.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Folder Verification:</strong></p>
+<ul>
+<li>Checks if the name is not empty before creating an instance of the <code>Profile</code> class with the provided name.</li>
+<li>Ensures that the user profile folder exists before proceeding.</li>
+</ul>
+</li>
+<li>
+<p><strong>Status Change:</strong></p>
+<ul>
+<li>Calls the <code>saveStatus</code> method of the <code>Profile</code> class, passing the new status to save it.</li>
+</ul>
+</li>
+<li>
+<p><strong>Show Center:</strong></p>
+<ul>
+<li>If the profile exists, and the status has changed successfully, calls the <code>showCenter</code> method with the argument “changeStatus” to display a message indicating that the status has been changed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage-4">Usage:</h2>
+<ul>
+<li>Enter the name of the profile in the <code>nameTextField</code>.</li>
+<li>Enter the new status in the <code>changeStatusTextField</code>.</li>
+<li>Click the “Change Status” button to trigger the <code>changeStatus</code> method.</li>
+<li>If the name is not empty</li>
+</ul>
+<h2 id="addfriends-method-explanation"><code>addFriends</code> Method Explanation</h2>
+<p>The <code>addFriends</code> method is responsible for adding a friend to a user’s friend list.</p>
+<h2 id="overview-5">Overview:</h2>
+<ul>
+<li>
+<p><strong>User Input:</strong></p>
+<ul>
+<li>Retrieves the name of the current user from the <code>nameTextField</code> input field.</li>
+<li>Retrieves the friend’s username from the <code>addFriendTextFiled</code> input field.</li>
+</ul>
+</li>
+<li>
+<p><strong>Validation:</strong></p>
+<ul>
+<li>Checks if the friend’s username is not empty before attempting to add friends.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Existence Check:</strong></p>
+<ul>
+<li>Creates an instance of the <code>Profile</code> class for the current user.</li>
+<li>Verifies that the current user’s profile folder exists and that the friend’s username is not the same as the current user.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Friends:</strong></p>
+<ul>
+<li>Calls the <code>friends</code> method of the <code>Profile</code> class to add the friend to the current user’s friend list.</li>
+<li>Prints a message to the console indicating the successful addition of the friend.</li>
+</ul>
+</li>
+<li>
+<p><strong>Show Center:</strong></p>
+<ul>
+<li>Calls the <code>showCenter</code> method with the argument “add friend” to display a message indicating that the friend has been added successfully.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage-5">Usage:</h2>
+<ul>
+<li>Enter the name of the current user in the <code>nameTextField</code>.</li>
+<li>Enter the friend’s username in the <code>addFriendTextFiled</code>.</li>
+<li>Click the “Add Friends” button to trigger the <code>addFriends</code> method.</li>
+<li>If the friend’s username is not empty, the current user’s profile exists, and the friend is added successfully, a message confirming the addition will be displayed in the center of the application.</li>
+</ul>
+<h2 id="showuserinfo-method-explanation"><code>showUserInfo</code> Method Explanation</h2>
+<p>The <code>showUserInfo</code> method retrieves and displays user information.</p>
+<h2 id="overview-6">Overview:</h2>
+<ul>
+<li>
+<p><strong>User Input:</strong></p>
+<ul>
+<li>Gets the name of the current user from <code>nameTextField</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Handling:</strong></p>
+<ul>
+<li>Creates a <code>Profile</code> instance for the current user.</li>
+<li>Retrieves files (friends, status, image, name) from the user’s profile.</li>
+</ul>
+</li>
+<li>
+<p><strong>Display:</strong></p>
+<ul>
+<li>Calls <code>showProfile</code> if the name is not empty.</li>
+<li>Calls <code>showCenter("noProfile")</code> if no profile exists.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage-6">Usage:</h2>
+<ul>
+<li>Enter the user’s name in <code>nameTextField</code>.</li>
+<li>Click “Lookup” to display user info in the app.</li>
+<li>Handles scenarios with and without a profile.</li>
+</ul>
+<h2 id="showprofile-method-explanation"><code>showProfile</code> Method Explanation</h2>
+<p>The <code>showProfile</code> method is responsible for displaying user profile information .</p>
+<h2 id="overview-7">Overview:</h2>
+<ul>
+<li>
+<p><strong>Input Parameters:</strong></p>
+<ul>
+<li><code>friends</code>: String containing friends’ names.</li>
+<li><code>status</code>: User’s current status.</li>
+<li><code>imagePath</code>: Path to the user’s profile image.</li>
+<li><code>name</code>: User’s name.</li>
+</ul>
+</li>
+<li>
+<p><strong>Center Pane Setup:</strong></p>
+<ul>
+<li>Creates a <code>Pane</code> named <code>centerPane</code> to hold profile elements.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Label (Name):</strong></p>
+<ul>
+<li>Creates a blue-colored label for the user’s name.</li>
+<li>Sets font size, layout position, and appearance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Image Handling:</strong></p>
+<ul>
+<li>If <code>imagePath</code> is not empty, creates an <code>ImageView</code> with the user’s image.</li>
+<li>If no image, displays a white rectangle with a “No Image” label.</li>
+</ul>
+</li>
+<li>
+<p><strong>Status Label:</strong></p>
+<ul>
+<li>Creates a label for the user’s status.</li>
+<li>Displays “No current status” if the status is empty.</li>
+</ul>
+</li>
+<li>
+<p><strong>Friends Label:</strong></p>
+<ul>
+<li>Creates a label to display friends’ names.</li>
+</ul>
+</li>
+<li>
+<p><strong>Additional Labels:</strong></p>
+<ul>
+<li>Displays information about the displayed profile.</li>
+</ul>
+</li>
+<li>
+<p><strong>Adding Elements:</strong></p>
+<ul>
+<li>Adds all created elements to the <code>centerPane</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Setting Center Pane:</strong></p>
+<ul>
+<li>Sets <code>centerPane</code> as the center of the <code>borderPane</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage-7">Usage:</h2>
+<ul>
+<li>Call this method with user profile information to display it.</li>
+</ul>
+<h2 id="showcenter-method-explanation"><code>showCenter</code> Method Explanation</h2>
+<p>The <code>showCenter</code> method manages the central display of information based on different conditions.</p>
+<h2 id="overview-8">Overview:</h2>
+<ul>
+<li>
+<p><strong>Input Parameters:</strong></p>
+<ul>
+<li><code>cond</code>: A condition string determining the specific scenario ( “add”, “delete”, “changeImage”…).</li>
+</ul>
+</li>
+<li>
+<p><strong>User Information Retrieval:</strong></p>
+<ul>
+<li>Retrieves user information such as friends, status, image path, and name using the <code>Profile</code> class.</li>
+</ul>
+</li>
+<li>
+<p><strong>Center Pane Setup:</strong></p>
+<ul>
+<li>Creates a <code>Pane</code> named <code>centerPane</code> to hold various UI elements.</li>
+</ul>
+</li>
+<li>
+<p><strong>Profile Label (Name):</strong></p>
+<ul>
+<li>Creates a blue-colored label for the user’s name.</li>
+<li>Sets font size, layout position, and appearance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Image Handling:</strong></p>
+<ul>
+<li>Creates an <code>ImageView</code> with the user’s image if available.</li>
+<li>Displays a white rectangle with a “No Image” label if no image is found.</li>
+</ul>
+</li>
+<li>
+<p><strong>Status Label:</strong></p>
+<ul>
+<li>Creates a label for the user’s status.</li>
+<li>Displays “No current status” if the status is empty.</li>
+</ul>
+</li>
+<li>
+<p><strong>Friends Label:</strong></p>
+<ul>
+<li>Creates a label to display friends’ names.</li>
+</ul>
+</li>
+<li>
+<p><strong>Condition-Based Display:</strong></p>
+<ul>
+<li>Uses the <code>cond</code> parameter to determine the specific scenario and adjusts the UI accordingly.</li>
+<li>Displays appropriate messages and elements based on the condition.</li>
+</ul>
+</li>
+<li>
+<p><strong>Setting Center Pane:</strong></p>
+<ul>
+<li>Sets <code>centerPane</code> as the center of the <code>borderPane</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage-8">Usage:</h2>
+<ul>
+<li>Call this method with the specific condition to display relevant information in the JavaFX application.</li>
+</ul>
+<h1 id="applytheme-method-explanation"><code>applyTheme</code> Method Explanation</h1>
+<p>The <code>applyTheme</code> method is responsible for changing the visual theme based on the user selection from a ComboBox.</p>
+<h2 id="overview-9">Overview:</h2>
+<ul>
+<li>
+<p><strong>Functionality:</strong></p>
+<ul>
+<li>Applies different styles to the <code>borderPane</code> based on the selected theme.</li>
+</ul>
+</li>
+<li>
+<p><strong>Selected Theme Handling:</strong></p>
+<ul>
+<li>Uses a <code>switch</code> statement to determine the selected theme and apply corresponding styles.</li>
+<li>Themes include “Default,” “Theme 1,” “Theme 2,” and “Theme 3.”</li>
+</ul>
+</li>
+</ul>
+<h2 id="clearinputfields-method"><code>clearInputFields</code> Method</h2>
+<p>The <code>clearInputFields</code> method is designed to clear the input fields in the application.</p>
+<h1 id="profile-class-overview"><code>Profile</code> Class Overview</h1>
+<p>The <code>Profile</code> class designed to manage user profiles within a Java application. It includes methods for creating, deleting, and updating user profiles, handling user images, saving user status, managing friends, and retrieving user information.</p>
+<h2 id="fields">Fields</h2>
+<ul>
+<li><strong><code>name</code></strong>: Represents the username associated with the profile.</li>
+<li><strong><code>folder</code></strong>: Represents the directory where user-specific data is stored.</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<h3 id="profilestring-name"><code>Profile(String name)</code></h3>
+<ul>
+<li><em>Constructor</em>: Initializes a <code>Profile</code> object with the provided username (<code>name</code>).</li>
+</ul>
+<h3 id="boolean-createuserprofile"><code>boolean createUserProfile()</code></h3>
+<ul>
+<li><strong>Description</strong>: Creates a new user profile folder and saves the username in a corresponding file.</li>
+<li><strong>Returns</strong>: <code>true</code> if the profile is successfully created, <code>false</code> otherwise.</li>
+</ul>
+<h3 id="void-createimagestring-imagepath"><code>void createImage(String imagePath)</code></h3>
+<ul>
+<li><strong>Description</strong>: Moves an image file to the user’s profile folder, overwriting existing images.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code>imagePath</code>: The path to the source image file.</li>
+</ul>
+</li>
+</ul>
+<h3 id="void-deleteprofile"><code>void deleteProfile()</code></h3>
+<ul>
+<li><strong>Description</strong>: Deletes the user profile folder and its contents.</li>
+</ul>
+<h3 id="void-savestatusstring-status"><code>void saveStatus(String status)</code></h3>
+<ul>
+<li><strong>Description</strong>: Saves the user’s status in a file within the user’s profile folder.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code>status</code>: The status to be saved.</li>
+</ul>
+</li>
+</ul>
+<h3 id="boolean-userprofileexists"><code>boolean userProfileExists()</code></h3>
+<ul>
+<li><strong>Description</strong>: Checks if the user profile folder exists.</li>
+<li><strong>Returns</strong>: <code>true</code> if the profile folder exists, <code>false</code> otherwise.</li>
+</ul>
+<h3 id="void-friendsstring-currentuser-string-frienduser"><code>void friends(String currentUser, String friendUser)</code></h3>
+<ul>
+<li><strong>Description</strong>: Add a friend between a user and another by updating their friend lists.</li>
+<li><strong>Parameters</strong>:
+<ul>
+<li><code>currentUser</code>: The usage username.</li>
+<li><code>friendUser</code>: The friend’s username.</li>
+</ul>
+</li>
+</ul>
+<h3 id="file-getuserfiles"><code>File[] getUserFiles()</code></h3>
+<ul>
+<li><strong>Description</strong>: Retrieves an array of <code>File</code> objects representing the contents of the user’s profile folder.</li>
+<li><strong>Returns</strong>: An array of <code>File</code> objects or <code>null</code> if the user profile doesn’t exist.</li>
+</ul>
+<h2 id="note">Note</h2>
+<ul>
+<li>The project structure includes a “data” directory inside the “src” directory for storing user data. Evrey user has his own folder within his information.</li>
+</ul>
+<h3 id="how-to-use-the-application">How to use the Application?</h3>
+<ol>
+<li>
+<p><strong>Adding a Profile:</strong></p>
+<ul>
+<li>Enter a name for the new profile in the provided text field.</li>
+<li>Click the “Add” button.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deleting a Profile:</strong></p>
+<ul>
+<li>Enter the name of the profile to delete.</li>
+<li>Click the “Delete” button.</li>
+</ul>
+</li>
+<li>
+<p><strong>Changing Profile Picture:</strong></p>
+<ul>
+<li>Enter the image path in the designated text field.</li>
+<li>Click the “Change Picture” button.</li>
+</ul>
+</li>
+<li>
+<p><strong>Changing Status:</strong></p>
+<ul>
+<li>Enter the new status in the text field.</li>
+<li>Click the “Change Status” button.</li>
+</ul>
+</li>
+<li>
+<p><strong>Adding Friends:</strong></p>
+<ul>
+<li>Enter the friend’s username in the text field.</li>
+<li>Click the “Add Friends” button.</li>
+</ul>
+</li>
+<li>
+<p><strong>Looking Up User Information:</strong></p>
+<ul>
+<li>Enter the name of the profile to look up.</li>
+<li>Click the “Lookup” button.</li>
+</ul>
+</li>
+<li>
+<p><strong>Themes:</strong></p>
+<ul>
+<li>Use the theme dropdown to select different UI themes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Clearing The Fields:</strong></p>
+</li>
+</ol>
+<ul>
+<li>Click the clear button .</li>
+</ul>
+<blockquote>
+<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
+</div>
+</body>
+
+</html>
